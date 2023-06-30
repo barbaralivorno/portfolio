@@ -1,0 +1,31 @@
+html {
+  @include font-size(md);
+  background: var(--sj-black);
+  color: var(--sj-white);
+}
+
+body {
+  @include primary-font;
+}
+
+.site {
+  &--not-scrolling,
+  &--nav-opened {
+    overflow: hidden;
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__main {
+    margin-top: var(--header-height);
+  }
+
+  &-header {
+
+  }
+
+  &-footer {
+  }
+}

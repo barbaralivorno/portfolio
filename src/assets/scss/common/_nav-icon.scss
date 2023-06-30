@@ -1,0 +1,83 @@
+$button-size: 1.5rem;
+$transition: 0.3s;
+
+@mixin line {
+  display: flex;
+  align-items: center;
+  width: $button-size;
+  height: $button-size/8;
+  transition: $transition;
+}
+
+.nav-icon {
+  margin-left: auto;
+  height: 100%;
+  width: 4.5rem;
+
+  &.lines-button {
+    display: inline-block;
+    transition: 0.3s;
+    cursor: pointer;
+    user-select: none;
+
+    @include for-size(laptop-up) {
+      display: none;
+    }
+
+    &:hover {
+      opacity: 1;
+
+      .lines {
+        &:before {
+          top: $button-size/2.63;
+        }
+        &:after {
+          top: -$button-size/2.63;
+        }
+      }
+    }
+
+    &.close .lines {
+      background: transparent;
+
+      &:before,
+      &:after {
+        transform-origin: 50% 50%;
+        top: 0;
+        width: $button-size;
+      }
+
+      &:before {
+        transform: rotate3d(0, 0, 1, 45deg);
+      }
+      &:after {
+        transform: rotate3d(0, 0, 1, -45deg);
+      }
+    }
+  }
+
+  .lines {
+    @include line;
+    position: relative;
+    background: var(--color-orange);
+    margin-left: auto;
+
+    &:before,
+    &:after {
+      @include line;
+      position: absolute;
+      right: 0;
+      content: "";
+      transform-origin: $button-size/14 center;
+      background: var(--color-orange);
+    }
+
+    &:before {
+      top: $button-size/2.63;
+    }
+    &:after {
+      top: -$button-size/2.63;
+      width: $button-size;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+.text-page {
+  &__text {
+    padding: 2rem 3.75rem;
+
+    @include for-size(phone-only) {
+      padding: 5vw;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 2rem 0 1rem 0;
+  }
+
+  &__content {
+    h2 {
+      font-weight: 700;
+      margin: 2.5rem 0 0.5rem 0;
+
+      @include for-size(phone-only) {
+        font-size: 1.3rem;
+      }
+    }
+
+    p {
+      margin-bottom: 0.5rem;
+    }
+
+    ul {
+      list-style-type: disc;
+      list-style-position: inside;
+    }
+  }
+}

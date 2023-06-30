@@ -1,0 +1,47 @@
+@use "sass:map";
+
+$desktop-font-sizes: (
+  xs: 0.7rem,
+  sm: 0.85rem,
+  md: 16px,
+  lg: 1.125rem,
+  xl: 1.5rem,
+  xxl: 3.125rem,
+  ul: 12.5rem,
+);
+
+$laptop-font-sizes: (
+  xs: 0.7rem,
+  sm: 0.85rem,
+  md: 14px,
+  lg: 1.125rem,
+  xl: 1.5rem,
+  xxl: 3.125rem,
+  ul: 12.5rem,
+);
+
+$phone-font-sizes: (
+  xs: 0.7rem,
+  sm: 0.85rem,
+  md: 16px,
+  lg: 1.125rem,
+  xl: 1.5rem,
+  xxl: 3.125rem,
+  ul: 12.5rem,
+);
+
+@mixin primary-font {
+  font-family: "Roboto", sans-serif;
+}
+
+@mixin font-size($size) {
+  font-size: #{map.get($desktop-font-sizes, $size)};
+
+  @include for-size(tablet-down) {
+    font-size: #{map.get($phone-font-sizes, $size)};
+  }
+
+  @include for-size(laptop-only) {
+    font-size: #{map.get($laptop-font-sizes, $size)};
+  }
+}

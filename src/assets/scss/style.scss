@@ -1,0 +1,31 @@
+/*!
+Theme Name: Tectonyx
+Author: Human Design
+Author URI: http://humandesign.com
+Version: 1.0
+*/
+
+/**
+ * Common
+ */
+@import "common/responsive";
+@import "common/typography";
+@import "common/variables";
+@import "common/normalize";
+@import "common/shared";
+@import "common/layout";
+@import "common/nav-icon";
+
+/**
+ * Dependencies
+ */
+
+/**
+ * Components
+ */
+@import "components";
+
+/**
+ * Pages
+ */
+@import "pages";

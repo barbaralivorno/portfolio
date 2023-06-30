@@ -1,0 +1,16 @@
+.not-found-page {
+  &__main {
+    @include font-size(xxl);
+    color: var(--color-orange);
+    height: calc(100vh - var(--header-height) - var(--footer-height));
+    padding: 0 3.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    @include for-size(phone-only) {
+      @include font-size(lg);
+    }
+  }
+}

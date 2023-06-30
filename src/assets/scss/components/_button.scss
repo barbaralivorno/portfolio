@@ -1,0 +1,40 @@
+button.button--orange,
+a.button--orange,
+.button--orange > a {
+  padding: 0.56rem 1.25rem;
+  display: flex;
+  align-items: center;
+}
+
+button.button--with-arrow,
+a.button--with-arrow,
+.button--with-arrow > a {
+  background-image: url("assets/images/icon-arrow.svg");
+  background-repeat: no-repeat;
+  background-position: right 1.875rem center;
+  background-size: 1.375rem auto;
+  padding-right: 4.375rem !important;
+  font-weight: 500;
+}
+
+.button {
+  &--orange {
+    @include font-size(lg);
+    background-color: var(--color-orange);
+    color: white;
+    font-weight: 700;
+    transition: background-color 250ms;
+
+    @include for-size(phone-only) {
+      font-size: 0.68rem;
+    }
+
+    &:hover {
+      background-color: var(--color-blue-700);
+    }
+  }
+
+  &--uppercase {
+    text-transform: uppercase;
+  }
+}
