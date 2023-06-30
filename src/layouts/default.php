@@ -24,7 +24,9 @@ $template_config = get_field('theme');
   <?= yield_content('head') ?>
 </head>
 
-<body class='<?= $post ? $post->post_name : $view ?>-page <?= $post ? "{$post->post_type}-post" : '' ?> site site--<?= $template_config ?>' data-page='<?= $post ? $post->post_name : $view ?>'>
+<body
+  class='<?= $post ? $post->post_name : $view ?>-page <?= $post ? "{$post->post_type}-post" : '' ?> site site--<?= $template_config ?>'
+  data-page='<?= $post ? $post->post_name : $view ?>'>
   <?= get_option('hd_google_analytics_noscript') ?>
   <?= partial('includes/site-header', ['modifier' => yield_content('site-header-modifier')]) ?>
   <main class="site__main site-main <?= $post ? $post->post_name : $view ?>-page__main">

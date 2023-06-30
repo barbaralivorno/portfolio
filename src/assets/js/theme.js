@@ -1,10 +1,4 @@
-import "external-svg-loader";
 import "../scss/style.scss";
-import "./initializers/validation";
-import Blocks from "./modules/blocks";
-import Menu from "./modules/menu";
-import ContactPage from "./pages/contact";
-import PortfolioPage from "./pages/portfolio";
 
 class Site {
   constructor(pageName, pageMap, moduleMap) {
@@ -39,16 +33,11 @@ new Site(
      * Add the pages in format:
      * 'page-slug': PageClass
      */
-    portfolio: PortfolioPage,
-    contact: ContactPage,
   },
   {
     /**
      * Add the modules in format:
      * 'module-slug': ModuleClass
      */
-
-    blocks: Blocks,
-    menu: Menu,
   }
 );
