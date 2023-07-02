@@ -1,4 +1,6 @@
 import "../scss/style.scss";
+import Menu from "./modules/menu";
+import Hero from "./modules/hero";
 
 class Site {
   constructor(pageName, pageMap, moduleMap) {
@@ -39,5 +41,8 @@ new Site(
      * Add the modules in format:
      * 'module-slug': ModuleClass
      */
+
+    menu: Menu,
+    'hero': Hero,
   }
 );

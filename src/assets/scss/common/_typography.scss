@@ -3,35 +3,39 @@
 $desktop-font-sizes: (
   xs: 0.7rem,
   sm: 0.85rem,
-  md: 16px,
-  lg: 1.125rem,
-  xl: 1.5rem,
-  xxl: 3.125rem,
-  ul: 12.5rem,
+  md: 1.5rem,
+  lg: 2rem,
+  xl: 4rem,
+  xxl: 5rem,
+  ul: 7rem,
 );
 
 $laptop-font-sizes: (
   xs: 0.7rem,
   sm: 0.85rem,
-  md: 14px,
-  lg: 1.125rem,
-  xl: 1.5rem,
-  xxl: 3.125rem,
-  ul: 12.5rem,
+  md: 1.5rem,
+  lg: 2rem,
+  xl: 4rem,
+  xxl: 5rem,
+  ul: 7rem,
 );
 
 $phone-font-sizes: (
   xs: 0.7rem,
   sm: 0.85rem,
-  md: 16px,
-  lg: 1.125rem,
-  xl: 1.5rem,
-  xxl: 3.125rem,
-  ul: 12.5rem,
+  md: 1.5rem,
+  lg: 2rem,
+  xl: 4rem,
+  xxl: 5rem,
+  ul: 7rem,
 );
 
 @mixin primary-font {
   font-family: "Roboto", sans-serif;
+}
+
+@mixin secondary-font {
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 @mixin font-size($size) {

@@ -18,7 +18,10 @@ $template_config = get_field('theme');
   <title><?= $page_title ?></title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Space+Grotesk:wght@300;500;700&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="<?= template_url('style.css', true) ?>" type="text/css" media="screen" />
   <?php wp_head() ?>
   <?= yield_content('head') ?>
