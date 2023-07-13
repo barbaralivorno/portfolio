@@ -3,11 +3,8 @@ class Menu {
     this.$navIcon = $(".site-header__nav-icon");
     this.$mainNav = $(".site-header__main-nav");
 
-    this.setup();
     this.listen();
   }
-
-  setup() {}
 
   listen() {
     this.$navIcon.on("click", () => {

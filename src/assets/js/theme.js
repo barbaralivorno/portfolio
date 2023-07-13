@@ -2,6 +2,7 @@ import "../scss/style.scss";
 import Menu from "./modules/menu";
 import Hero from "./modules/hero";
 import About from "./modules/about";
+import ScrollButton from "./modules/scroll-button";
 
 class Site {
   constructor(pageName, pageMap, moduleMap) {
@@ -43,8 +44,9 @@ new Site(
      * 'module-slug': ModuleClass
      */
 
-    menu: Menu,
+    'menu': Menu,
     'hero': Hero,
     'about': About,
+    'scroll-button': ScrollButton,
   }
 );

@@ -2,7 +2,7 @@
   $image = get_field('image');
   $info = get_field('info');
 ?>
-<section class="home__about about" id="#about">
+<section class="home__about about" id="about">
   <h2 class="home__about-title about__title title title--white">About Me</h2>
   <div class="home__about-content about__content">
     <div class="home__about-img about__img-container">

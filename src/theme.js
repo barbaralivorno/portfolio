@@ -22,11 +22,6 @@ var About = /*#__PURE__*/function () {
   function About(element) {
     _classCallCheck(this, About);
     this.element = element;
-    this._handleOnScreenChange = this._handleOnScreenChange.bind(this);
-    this._screenObserver = new IntersectionObserver(this.handleOnScreenChange, {
-      threshold: 0
-    });
-    this._screenObserver.observe(this.element);
     this.setup();
   }
   _createClass(About, [{
@@ -71,6 +66,7 @@ var Hero = /*#__PURE__*/function () {
   _createClass(Hero, [{
     key: "setup",
     value: function setup() {
+      this.site = document.querySelector(".site");
       this.heroText = document.querySelector(".hero__text");
       this.heroButton = document.querySelector(".hero__button");
       this.typewriter();
@@ -79,6 +75,7 @@ var Hero = /*#__PURE__*/function () {
     key: "typewriter",
     value: function typewriter() {
       var _this = this;
+      this.site.classList.add("site--not-scrolling");
       var text = ["Hi,", "I'm Barbara,", "a Frontend Developer."];
       var speed = 100;
       var index = 0;
@@ -115,6 +112,7 @@ var Hero = /*#__PURE__*/function () {
     key: "buttonActive",
     value: function buttonActive() {
       this.heroButton.classList.add("active");
+      this.site.classList.remove("site--not-scrolling");
     }
   }]);
   return Hero;
@@ -144,13 +142,9 @@ var Menu = /*#__PURE__*/function () {
     _classCallCheck(this, Menu);
     this.$navIcon = $(".site-header__nav-icon");
     this.$mainNav = $(".site-header__main-nav");
-    this.setup();
     this.listen();
   }
   _createClass(Menu, [{
-    key: "setup",
-    value: function setup() {}
-  }, {
     key: "listen",
     value: function listen() {
       var _this = this;
@@ -164,6 +158,56 @@ var Menu = /*#__PURE__*/function () {
   return Menu;
 }();
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Menu);
+
+/***/ }),
+
+/***/ "./assets/js/modules/scroll-button.js":
+/*!********************************************!*\
+  !*** ./assets/js/modules/scroll-button.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+var ScrollButton = /*#__PURE__*/function () {
+  function ScrollButton() {
+    _classCallCheck(this, ScrollButton);
+    this.setup();
+    this.listen();
+  }
+  _createClass(ScrollButton, [{
+    key: "setup",
+    value: function setup() {
+      this.scrollButtons = document.querySelectorAll(".scroll-button");
+    }
+  }, {
+    key: "listen",
+    value: function listen() {
+      this.scrollButtons.forEach(function (scrollButton) {
+        scrollButton.addEventListener("click", function (event) {
+          event.preventDefault();
+          var targetId = scrollButton.getAttribute("href");
+          var targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: "smooth"
+            });
+          }
+        });
+      });
+    }
+  }]);
+  return ScrollButton;
+}();
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ScrollButton);
 
 /***/ }),
 
@@ -246,6 +290,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menu */ "./assets/js/modules/menu.js");
 /* harmony import */ var _modules_hero__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/hero */ "./assets/js/modules/hero.js");
 /* harmony import */ var _modules_about__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/about */ "./assets/js/modules/about.js");
+/* harmony import */ var _modules_scroll_button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/scroll-button */ "./assets/js/modules/scroll-button.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -258,6 +303,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
 
 
 
@@ -307,9 +353,10 @@ new Site($("body").data("page"), {
    * 'module-slug': ModuleClass
    */
 
-  menu: _modules_menu__WEBPACK_IMPORTED_MODULE_1__["default"],
+  'menu': _modules_menu__WEBPACK_IMPORTED_MODULE_1__["default"],
   'hero': _modules_hero__WEBPACK_IMPORTED_MODULE_2__["default"],
-  'about': _modules_about__WEBPACK_IMPORTED_MODULE_3__["default"]
+  'about': _modules_about__WEBPACK_IMPORTED_MODULE_3__["default"],
+  'scroll-button': _modules_scroll_button__WEBPACK_IMPORTED_MODULE_4__["default"]
 });
 })();
 

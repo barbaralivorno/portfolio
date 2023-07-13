@@ -1,4 +1,4 @@
-<section class="home__hero hero">
+<section class="home__hero hero" id="hero">
   <h2 class="home__hero-text hero__text">
   </h2>
   <a class="home__hero-button hero__button scroll-button" href="#about"><span

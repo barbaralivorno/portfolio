@@ -4,12 +4,14 @@ class Hero {
   }
 
   setup() {
+    this.site = document.querySelector(".site");
     this.heroText = document.querySelector(".hero__text");
     this.heroButton = document.querySelector(".hero__button");
     this.typewriter();
   }
 
   typewriter() {
+    this.site.classList.add("site--not-scrolling");
     let text = [
       "Hi,",
       "I'm Barbara,",
@@ -58,6 +60,7 @@ class Hero {
 
   buttonActive() {
     this.heroButton.classList.add("active");
+    this.site.classList.remove("site--not-scrolling");
   }
 }
 

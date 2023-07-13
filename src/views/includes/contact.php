@@ -1,4 +1,4 @@
-<section class="home__contact contact">
+<section class="home__contact contact" id="contact">
   <h2 class="home__contact-title contact__title title title--white">Let's Talk</h2>
   <div class="home__contact-container contact__container">
     <div class="home__contact-data contact__data">
