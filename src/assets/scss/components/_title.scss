@@ -1,9 +1,8 @@
 .title {
   width: 100%;
-  @include font-size(xxl);
-  text-transform: uppercase;
+  @include font-size(xl);
   font-weight: bold;
-  padding: 3rem var(--wrapper-padding);
+  padding: 4rem var(--wrapper-padding) 3rem;
   color: var(--blue);
 
   &--white {
