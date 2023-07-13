@@ -3,31 +3,31 @@
 $desktop-font-sizes: (
   xs: 0.7rem,
   sm: 0.85rem,
-  md: 1.5rem,
+  md: 1.1255rem,
   lg: 2rem,
-  xl: 4rem,
+  xl: 4.5rem,
   xxl: 5rem,
-  ul: 7rem,
+  ul: 6rem,
 );
 
 $laptop-font-sizes: (
   xs: 0.7rem,
   sm: 0.85rem,
-  md: 1.5rem,
+  md: 1.125rem,
   lg: 2rem,
   xl: 4rem,
-  xxl: 5rem,
-  ul: 7rem,
+  xxl: 4.5rem,
+  ul: 6rem,
 );
 
 $phone-font-sizes: (
   xs: 0.7rem,
   sm: 0.85rem,
-  md: 1.5rem,
+  md: 1.125rem,
   lg: 2rem,
-  xl: 4rem,
+  xl: 4.5rem,
   xxl: 5rem,
-  ul: 7rem,
+  ul: 6rem,
 );
 
 @mixin primary-font {

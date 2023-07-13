@@ -1,0 +1,24 @@
+.work {
+  height: 100vh;
+  color: var(--blue);
+  position: relative;
+
+  &__list {
+    max-height: 75vw;
+    overflow-y: scroll;
+    padding: 2rem var(--wrapper-padding);
+
+    &-item {
+      @include font-size(lg);
+      display: flex;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--blue);
+      gap: 2rem;
+
+      &-icon {
+        width: 2rem;
+        box-sizing: content-box;
+      }
+    }
+  }
+}

@@ -19,6 +19,8 @@ require_once('bootstrap/admin.php');
 
 
 //Scale
+add_image_size('scale-960', 960, 9999, false);
+add_image_size('scale-720', 720, 9999, false);
 
 /**
  * Helpers

@@ -1,6 +1,7 @@
 import "../scss/style.scss";
 import Menu from "./modules/menu";
 import Hero from "./modules/hero";
+import About from "./modules/about";
 
 class Site {
   constructor(pageName, pageMap, moduleMap) {
@@ -44,5 +45,6 @@ new Site(
 
     menu: Menu,
     'hero': Hero,
+    'about': About,
   }
 );

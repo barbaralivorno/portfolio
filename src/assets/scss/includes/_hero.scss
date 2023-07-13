@@ -7,7 +7,7 @@
 
   &__text {
     @include secondary-font;
-    @include font-size(xxl);
+    @include font-size(ul);
     font-weight: bold;
   }
 
@@ -35,28 +35,6 @@
   }  
 
   &__button {
-    @include font-size(sm);
-    text-decoration: underline;
-    position: absolute;
-    bottom: 2rem;
-    right: 50%;
-    transform: translate(50%);
-    display: flex;
-    align-items: center;
     opacity: 0;
-
-    &-text {
-      margin-right: 5px;
-    }
-
-    &-icon {
-      transform: rotate(90deg);
-      width: 20px;
-    }
-
-    &.active {
-      opacity: 1;
-      transition: opacity 1s;
-    }
   }
 }

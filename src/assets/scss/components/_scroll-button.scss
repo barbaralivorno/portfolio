@@ -1,0 +1,24 @@
+.scroll-button {
+  @include font-size(md);
+  text-decoration: underline;
+  position: absolute;
+  bottom: 2rem;
+  right: 50%;
+  transform: translate(50%);
+  display: flex;
+  align-items: center;
+
+  &__text {
+    margin-right: 5px;
+  }
+
+  &__icon {
+    transform: rotate(90deg);
+    width: 20px;
+  }
+
+  &.active {
+    opacity: 1;
+    transition: opacity 1s;
+  }
+}

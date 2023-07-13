@@ -1,0 +1,12 @@
+.title {
+  width: 100%;
+  @include font-size(xxl);
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 3rem var(--wrapper-padding);
+  color: var(--blue);
+
+  &--white {
+    color: var(--white);
+  }
+}

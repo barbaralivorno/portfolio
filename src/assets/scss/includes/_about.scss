@@ -1,0 +1,58 @@
+.about {
+  height: 100vh;
+  background-color: var(--blue);  
+  color: var(--white);
+  position: relative;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+  }
+
+  &__img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: 10;
+    position: relative;
+
+    &-container {
+      width: 35%;
+      height: 55vh;
+      position: relative;
+      //transform: translateX(calc(-100% - 1rem));
+  
+      &::before {
+        content: '';
+        background-color: var(--white);
+        width: calc(100% + 1rem);
+        height: calc(100% + 2rem);
+        position: absolute;
+        top: -1rem;
+      }
+    }
+  }
+
+  &__text {
+    @include font-size(md);
+    line-height: 1.5em;
+    width: 50%;
+    padding: 0 var(--wrapper-padding);
+    flex: 1;
+    //transform: translateX(calc(100% + var(--wrapper-padding)));
+
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .visible {
+    transform: translateX(0);
+  }
+}

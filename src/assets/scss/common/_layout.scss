@@ -1,5 +1,4 @@
 html {
-  @include font-size(md);
   color: var(--blue);
 }
 
@@ -28,7 +27,13 @@ body {
     align-items: center;
 
     &__logo {
-      @include font-size(md);
+      height: 2.4rem;
+      width: 2.5rem;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
     }
 
     &__main-nav {

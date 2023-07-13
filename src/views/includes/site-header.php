@@ -1,6 +1,6 @@
 <header class="site-header">
   <a href="/" class="site-header__logo">
-    < />
+    <?= file_get_contents(asset_path('images/logo.svg')) ?>
   </a>
   <button class="site-header__nav-icon nav-icon lines-button" type="button" role="button"
     aria-label="Toggle Navigation">
