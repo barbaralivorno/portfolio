@@ -1,19 +1,27 @@
 class Menu {
   constructor() {
-    this.$navIcon = $(".site-header__nav-icon");
-    this.$mainNav = $(".site-header__main-nav");
+    this.body = document.querySelector("body");
+    this.navIcon = document.querySelector(".site-header__nav-icon");
+    this.mainNav = document.querySelector(".site-header__main-nav");
+    this.mainNavItem = document.querySelector(".menu-item");
 
     this.listen();
   }
 
   listen() {
-    this.$navIcon.on("click", () => {
-      this.$navIcon.toggleClass("close");
-      this.$mainNav.toggleClass("site-header__main-nav--opened");
-      $("body")
-        .toggleClass("site--not-scrolling")
-        .toggleClass("site--nav-opened");
+    this.navIcon.addEventListener("click", () => {
+      this.navIcon.classList.toggle("close");
+      this.mainNav.classList.toggle("site-header__main-nav--opened");
+      this.body.classList.toggle("site--not-scrolling");
+      this.body.classList.toggle("site--nav-opened");
     });
+
+    this.mainNavItem.addEventListener("click", () => {
+      this.navIcon.classList.remove("close");
+      this.mainNav.classList.remove("site-header__main-nav--opened");
+      this.body.classList.remove("site--not-scrolling");
+      this.body.classList.remove("site--nav-opened");
+    })
   }
 }
 export default Menu;

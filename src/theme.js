@@ -2,6 +2,34 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./assets/js/helpers.js":
+/*!******************************!*\
+  !*** ./assets/js/helpers.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   isElementVisible: () => (/* binding */ isElementVisible)
+/* harmony export */ });
+var isElementVisible = function isElementVisible(elementSelector) {
+  var element = document.querySelector(elementSelector);
+  if (!element) {
+    return false;
+  }
+  var rect = element.getBoundingClientRect();
+  var windowHeight = window.innerHeight;
+  if (rect.top >= 0 && rect.top <= windowHeight) {
+    return true;
+  }
+  if (rect.bottom >= 0 && rect.bottom <= windowHeight) {
+    return true;
+  }
+  return false;
+};
+
+/***/ }),
+
 /***/ "./assets/js/modules/about.js":
 /*!************************************!*\
   !*** ./assets/js/modules/about.js ***!
@@ -52,12 +80,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers */ "./assets/js/helpers.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
 var Hero = /*#__PURE__*/function () {
   function Hero() {
     _classCallCheck(this, Hero);
@@ -66,6 +96,7 @@ var Hero = /*#__PURE__*/function () {
   _createClass(Hero, [{
     key: "setup",
     value: function setup() {
+      this.sectionVisible = (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.isElementVisible)('#hero');
       this.site = document.querySelector(".site");
       this.heroText = document.querySelector(".hero__text");
       this.heroButton = document.querySelector(".hero__button");
@@ -75,7 +106,10 @@ var Hero = /*#__PURE__*/function () {
     key: "typewriter",
     value: function typewriter() {
       var _this = this;
-      this.site.classList.add("site--not-scrolling");
+      if (this.sectionVisible) {
+        console.log('jj');
+        this.site.classList.add("site--not-scrolling");
+      }
       var text = ["Hi,", "I'm Barbara,", "a Frontend Developer."];
       var speed = 100;
       var index = 0;
@@ -101,6 +135,7 @@ var Hero = /*#__PURE__*/function () {
             setTimeout(type, 500);
           } else {
             _this.buttonActive();
+            _this.site.classList.remove("site--not-scrolling");
           }
         } else {
           setTimeout(type, speed);
@@ -112,7 +147,6 @@ var Hero = /*#__PURE__*/function () {
     key: "buttonActive",
     value: function buttonActive() {
       this.heroButton.classList.add("active");
-      this.site.classList.remove("site--not-scrolling");
     }
   }]);
   return Hero;
@@ -140,18 +174,27 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
 var Menu = /*#__PURE__*/function () {
   function Menu() {
     _classCallCheck(this, Menu);
-    this.$navIcon = $(".site-header__nav-icon");
-    this.$mainNav = $(".site-header__main-nav");
+    this.body = document.querySelector("body");
+    this.navIcon = document.querySelector(".site-header__nav-icon");
+    this.mainNav = document.querySelector(".site-header__main-nav");
+    this.mainNavItem = document.querySelector(".menu-item");
     this.listen();
   }
   _createClass(Menu, [{
     key: "listen",
     value: function listen() {
       var _this = this;
-      this.$navIcon.on("click", function () {
-        _this.$navIcon.toggleClass("close");
-        _this.$mainNav.toggleClass("site-header__main-nav--opened");
-        $("body").toggleClass("site--not-scrolling").toggleClass("site--nav-opened");
+      this.navIcon.addEventListener("click", function () {
+        _this.navIcon.classList.toggle("close");
+        _this.mainNav.classList.toggle("site-header__main-nav--opened");
+        _this.body.classList.toggle("site--not-scrolling");
+        _this.body.classList.toggle("site--nav-opened");
+      });
+      this.mainNavItem.addEventListener("click", function () {
+        _this.navIcon.classList.remove("close");
+        _this.mainNav.classList.remove("site-header__main-nav--opened");
+        _this.body.classList.remove("site--not-scrolling");
+        _this.body.classList.remove("site--nav-opened");
       });
     }
   }]);

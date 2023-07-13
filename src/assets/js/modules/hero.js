@@ -1,17 +1,23 @@
+import { isElementVisible } from '../helpers';
 class Hero {
   constructor() {
     this.setup();
   }
 
   setup() {
-    this.site = document.querySelector(".site");
+    this.sectionVisible = isElementVisible('#hero');
+    this.site = document.querySelector(".site")
     this.heroText = document.querySelector(".hero__text");
     this.heroButton = document.querySelector(".hero__button");
     this.typewriter();
   }
 
   typewriter() {
-    this.site.classList.add("site--not-scrolling");
+    if(this.sectionVisible) {
+      console.log('jj');
+      this.site.classList.add("site--not-scrolling");
+    }
+
     let text = [
       "Hi,",
       "I'm Barbara,",
@@ -49,6 +55,7 @@ class Hero {
           setTimeout(type, 500);
         } else {
           this.buttonActive();
+          this.site.classList.remove("site--not-scrolling");
         }
       } else {
         setTimeout(type, speed);
@@ -60,7 +67,6 @@ class Hero {
 
   buttonActive() {
     this.heroButton.classList.add("active");
-    this.site.classList.remove("site--not-scrolling");
   }
 }
 
