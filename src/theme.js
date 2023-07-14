@@ -65,7 +65,6 @@ var About = /*#__PURE__*/function () {
     value: function listen() {
       var _this = this;
       window.addEventListener('scroll', function () {
-        console.log('kk');
         if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.isElementVisible)('#about')) {
           _this.handleOnScreenChange();
         }
