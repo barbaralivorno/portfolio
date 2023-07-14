@@ -1,8 +1,9 @@
+import { isElementVisible } from '../helpers';
+
 class About {
-  constructor(element) {
-    this.element = element;
-    
+  constructor() {    
     this.setup();
+    this.listen();
   }
 
   setup() {
@@ -10,10 +11,18 @@ class About {
     this.text = document.querySelector(".about__text");
   }
 
-  _handleOnScreenChange() {
+  listen() {
+    window.addEventListener('scroll', () => {
+      if (isElementVisible('#about')) {
+        this.handleOnScreenChange();
+      }
+    });
+  }
+
+  handleOnScreenChange() {
     this.image.classList.add('visible');
+    this.text.classList.add('visible');
   }
 }
 
 export default About;
-  

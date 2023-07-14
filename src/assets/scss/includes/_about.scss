@@ -26,7 +26,8 @@
       width: 30%;
       height: 55vh;
       position: relative;
-      //transform: translateX(calc(-100% - 1rem));
+      transform: translateX(calc(-100% - 1rem));
+      transition: transform 250ms;
   
       &::before {
         content: '';
@@ -45,7 +46,8 @@
     width: 50%;
     padding: 0 var(--wrapper-padding);
     flex: 1;
-    //transform: translateX(calc(100% + var(--wrapper-padding)));
+    transform: translateX(calc(100% + var(--wrapper-padding)));
+    transition: transform 250ms;
 
     p {
       margin-bottom: 1rem;
@@ -54,5 +56,6 @@
 
   .visible {
     transform: translateX(0);
+    transition: transform 500ms;
   }
 }
