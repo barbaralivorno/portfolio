@@ -11,15 +11,6 @@ body {
 .site {
   overflow: hidden;
 
-  &--not-scrolling,
-  &--nav-opened {
-    overflow: hidden;
-
-    ::-webkit-scrollbar {
-      display: none;
-    }
-  }
-
   &-header {
     padding: 0 var(--wrapper-padding);
     height: var(--header-height);

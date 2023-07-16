@@ -201,14 +201,18 @@ var Menu = /*#__PURE__*/function () {
       this.navIcon.addEventListener("click", function () {
         _this.navIcon.classList.toggle("close");
         _this.mainNav.classList.toggle("site-header__main-nav--opened");
-        _this.body.classList.toggle("site--not-scrolling");
-        _this.body.classList.toggle("site--nav-opened");
       });
       this.mainNavItem.addEventListener("click", function () {
         _this.navIcon.classList.remove("close");
         _this.mainNav.classList.remove("site-header__main-nav--opened");
-        _this.body.classList.remove("site--not-scrolling");
-        _this.body.classList.remove("site--nav-opened");
+        var link = _this.mainNavItem.querySelector('a');
+        var href = link.getAttribute("href");
+        var targetElement = document.querySelector(href);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: "smooth"
+          });
+        }
       });
     }
   }]);
