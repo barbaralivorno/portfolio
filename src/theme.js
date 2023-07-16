@@ -347,7 +347,7 @@ var Work = /*#__PURE__*/function () {
             setTimeout(function () {
               _this.handleOnScreenChange(item);
             }, delay);
-            delay += 250;
+            delay += 500;
           });
         }
       });

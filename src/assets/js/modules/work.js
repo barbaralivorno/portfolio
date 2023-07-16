@@ -18,7 +18,7 @@ class Work {
           setTimeout(() => {
             this.handleOnScreenChange(item);
           }, delay);
-          delay += 250;
+          delay += 500;
         });
       }
     });
