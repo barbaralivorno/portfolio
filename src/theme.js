@@ -66,6 +66,7 @@ var About = /*#__PURE__*/function () {
       var _this = this;
       window.addEventListener('scroll', function () {
         if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.isElementVisible)('#about')) {
+          console.log("aca");
           _this.handleOnScreenChange();
         }
       });
@@ -149,7 +150,6 @@ var Hero = /*#__PURE__*/function () {
           } else {
             _this.buttonActive();
             _this.site.classList.remove("site--not-scrolling");
-            _this.hero.classList.add("active-section");
           }
         } else {
           setTimeout(type, speed);
@@ -295,19 +295,15 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
 var ScrollTop = /*#__PURE__*/function () {
   function ScrollTop() {
     _classCallCheck(this, ScrollTop);
-    this.scrollToFirstSection();
+    this.scrollToTop();
   }
   _createClass(ScrollTop, [{
-    key: "scrollToFirstSection",
-    value: function scrollToFirstSection() {
-      var firstSection = document.querySelector(".home__hero"); // Cambia ".home__hero" por el selector de tu primera sección
-      if (firstSection) {
-        firstSection.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-          inline: "nearest"
-        });
-      }
+    key: "scrollToTop",
+    value: function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     }
   }]);
   return ScrollTop;

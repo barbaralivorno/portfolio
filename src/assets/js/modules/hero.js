@@ -56,7 +56,6 @@ class Hero {
         } else {
           this.buttonActive();
           this.site.classList.remove("site--not-scrolling");
-          this.hero.classList.add("active-section")
         }
       } else {
         setTimeout(type, speed);

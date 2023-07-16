@@ -10,7 +10,7 @@
     padding-top: 1rem;
     margin: auto;
     position: absolute;
-    top: 50%;
+    top: calc(50% + var(--header-height)/2);
     transform: translateY(-50%);
     left: 0;
   }
