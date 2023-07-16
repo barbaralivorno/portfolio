@@ -17,7 +17,7 @@ class Menu {
     this.mainNavItem.forEach((item) => {
       item.addEventListener("click", (e) => {
         e.preventDefault();
-        console.log(e);
+        
         this.navIcon.classList.remove("close");
         this.mainNav.classList.remove("site-header__main-nav--opened");
 

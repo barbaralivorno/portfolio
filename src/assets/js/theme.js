@@ -3,6 +3,7 @@ import ScrollTop from "./modules/scroll-top";
 import Menu from "./modules/menu";
 import Hero from "./modules/hero";
 import About from "./modules/about";
+import Work from "./modules/work";
 import ScrollButton from "./modules/scroll-button";
 
 class Site {
@@ -50,5 +51,6 @@ new Site(
     'hero': Hero,
     'about': About,
     'scroll-button': ScrollButton,
+    'work': Work,
   }
 );

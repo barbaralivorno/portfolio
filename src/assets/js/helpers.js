@@ -7,11 +7,7 @@ export const isElementVisible = (elementSelector) => {
   const rect = element.getBoundingClientRect();
   const windowHeight = window.innerHeight;
 
-  if (rect.top >= 0 && rect.top == windowHeight) {
-    return true;
-  }
-
-  if (rect.bottom >= 0 && rect.bottom == windowHeight) {
+  if (rect.top >= 0 && rect.top < windowHeight || rect.top <= 0 && rect.bottom >= windowHeight) {
     return true;
   }
 

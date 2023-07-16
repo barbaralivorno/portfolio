@@ -19,10 +19,7 @@ var isElementVisible = function isElementVisible(elementSelector) {
   }
   var rect = element.getBoundingClientRect();
   var windowHeight = window.innerHeight;
-  if (rect.top >= 0 && rect.top == windowHeight) {
-    return true;
-  }
-  if (rect.bottom >= 0 && rect.bottom == windowHeight) {
+  if (rect.top >= 0 && rect.top < windowHeight || rect.top <= 0 && rect.bottom >= windowHeight) {
     return true;
   }
   return false;
@@ -66,7 +63,6 @@ var About = /*#__PURE__*/function () {
       var _this = this;
       window.addEventListener('scroll', function () {
         if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.isElementVisible)('#about')) {
-          console.log("aca");
           _this.handleOnScreenChange();
         }
       });
@@ -205,7 +201,6 @@ var Menu = /*#__PURE__*/function () {
       this.mainNavItem.forEach(function (item) {
         item.addEventListener("click", function (e) {
           e.preventDefault();
-          console.log(e);
           _this.navIcon.classList.remove("close");
           _this.mainNav.classList.remove("site-header__main-nav--opened");
           var link = item.querySelector('a');
@@ -312,6 +307,63 @@ var ScrollTop = /*#__PURE__*/function () {
 
 /***/ }),
 
+/***/ "./assets/js/modules/work.js":
+/*!***********************************!*\
+  !*** ./assets/js/modules/work.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers */ "./assets/js/helpers.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+var Work = /*#__PURE__*/function () {
+  function Work() {
+    _classCallCheck(this, Work);
+    this.setup();
+    this.listen();
+  }
+  _createClass(Work, [{
+    key: "setup",
+    value: function setup() {
+      this.items = document.querySelectorAll(".work__list-item");
+    }
+  }, {
+    key: "listen",
+    value: function listen() {
+      var _this = this;
+      window.addEventListener('scroll', function () {
+        if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.isElementVisible)('#work')) {
+          var delay = 0;
+          _this.items.forEach(function (item) {
+            setTimeout(function () {
+              _this.handleOnScreenChange(item);
+            }, delay);
+            delay += 250;
+          });
+        }
+      });
+    }
+  }, {
+    key: "handleOnScreenChange",
+    value: function handleOnScreenChange(item) {
+      item.classList.add("visible");
+    }
+  }]);
+  return Work;
+}();
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Work);
+
+/***/ }),
+
 /***/ "./assets/scss/style.scss":
 /*!********************************!*\
   !*** ./assets/scss/style.scss ***!
@@ -392,7 +444,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/menu */ "./assets/js/modules/menu.js");
 /* harmony import */ var _modules_hero__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/hero */ "./assets/js/modules/hero.js");
 /* harmony import */ var _modules_about__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/about */ "./assets/js/modules/about.js");
-/* harmony import */ var _modules_scroll_button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/scroll-button */ "./assets/js/modules/scroll-button.js");
+/* harmony import */ var _modules_work__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/work */ "./assets/js/modules/work.js");
+/* harmony import */ var _modules_scroll_button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/scroll-button */ "./assets/js/modules/scroll-button.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -405,6 +458,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
 
 
 
@@ -460,7 +514,8 @@ new Site($("body").data("page"), {
   'menu': _modules_menu__WEBPACK_IMPORTED_MODULE_2__["default"],
   'hero': _modules_hero__WEBPACK_IMPORTED_MODULE_3__["default"],
   'about': _modules_about__WEBPACK_IMPORTED_MODULE_4__["default"],
-  'scroll-button': _modules_scroll_button__WEBPACK_IMPORTED_MODULE_5__["default"]
+  'scroll-button': _modules_scroll_button__WEBPACK_IMPORTED_MODULE_6__["default"],
+  'work': _modules_work__WEBPACK_IMPORTED_MODULE_5__["default"]
 });
 })();
 

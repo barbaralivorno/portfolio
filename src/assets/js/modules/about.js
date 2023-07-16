@@ -14,7 +14,6 @@ class About {
   listen() {
     window.addEventListener('scroll', () => {
       if (isElementVisible('#about')) {
-        console.log("aca");
         this.handleOnScreenChange();
       }
     });
