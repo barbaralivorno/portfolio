@@ -3,7 +3,7 @@ class Menu {
     this.body = document.querySelector("body");
     this.navIcon = document.querySelector(".site-header__nav-icon");
     this.mainNav = document.querySelector(".site-header__main-nav");
-    this.mainNavItem = document.querySelector(".menu-item");
+    this.mainNavItem = document.querySelectorAll(".menu-item");
 
     this.listen();
   }
@@ -14,21 +14,25 @@ class Menu {
       this.mainNav.classList.toggle("site-header__main-nav--opened");
     });
 
-    this.mainNavItem.addEventListener("click", () => {
-      this.navIcon.classList.remove("close");
-      this.mainNav.classList.remove("site-header__main-nav--opened");
+    this.mainNavItem.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        e.preventDefault();
+        console.log(e);
+        this.navIcon.classList.remove("close");
+        this.mainNav.classList.remove("site-header__main-nav--opened");
 
-      const link = this.mainNavItem.querySelector('a');
-      const href = link.getAttribute("href");
+        const link = item.querySelector('a');
+        const href = link.getAttribute("href");
 
-      const targetElement = document.querySelector(href);
+        const targetElement = document.querySelector(href);
 
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: "smooth"
-        });
-      }
-    })
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: "smooth"
+          });
+        }
+      });
+    });
   }
 }
 export default Menu;
