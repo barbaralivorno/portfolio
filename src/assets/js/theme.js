@@ -1,4 +1,5 @@
 import "../scss/style.scss";
+import ScrollTop from "./modules/scroll-top";
 import Menu from "./modules/menu";
 import Hero from "./modules/hero";
 import About from "./modules/about";
@@ -44,6 +45,7 @@ new Site(
      * 'module-slug': ModuleClass
      */
 
+    'scroll-top': ScrollTop,
     'menu': Menu,
     'hero': Hero,
     'about': About,

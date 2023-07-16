@@ -6,7 +6,8 @@ class Hero {
 
   setup() {
     this.sectionVisible = isElementVisible('#hero');
-    this.site = document.querySelector(".site")
+    this.site = document.querySelector(".site");
+    this.hero = document.querySelector(".hero");
     this.heroText = document.querySelector(".hero__text");
     this.heroButton = document.querySelector(".hero__button");
     this.typewriter();
@@ -14,7 +15,6 @@ class Hero {
 
   typewriter() {
     if(this.sectionVisible) {
-      console.log('jj');
       this.site.classList.add("site--not-scrolling");
     }
 
@@ -56,6 +56,7 @@ class Hero {
         } else {
           this.buttonActive();
           this.site.classList.remove("site--not-scrolling");
+          this.hero.classList.add("active-section")
         }
       } else {
         setTimeout(type, speed);
