@@ -12,7 +12,7 @@
     <div class="home__about-text about__text">
       <?= $info ?>
       <?php if($resume) : ?>
-      <a class="home__about-resume about__resume" href="<?= $resume ?>">Download my resume</a>
+      <a class="home__about-resume about__resume" target="_blank" href="<?= $resume['url'] ?>">Download my resume</a>
       <?php endif ?>
     </div>
   </div>
