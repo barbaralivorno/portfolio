@@ -18,7 +18,7 @@
 
       &.visible {
         transform: translateX(0);
-        transition: 250ms;
+        transition: transform 1s 250ms;
       }
 
       &-icon {

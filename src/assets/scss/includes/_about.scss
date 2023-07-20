@@ -47,7 +47,7 @@
     padding: 0 var(--wrapper-padding);
     flex: 1;
     transform: translateX(calc(100% + var(--wrapper-padding)));
-    transition: transform 1000ms;
+    transition: transform 1s 1s;
 
     p {
       margin-bottom: 1rem;
@@ -56,6 +56,6 @@
 
   .visible {
     transform: translateX(0);
-    transition: transform 1000ms;
+    transition: transform 500ms 500ms;
   }
 }

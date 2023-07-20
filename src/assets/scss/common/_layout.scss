@@ -9,7 +9,9 @@ body {
 }
 
 .site {
-  overflow: hidden;
+  &--not-scrolling {
+    overflow: hidden;
+  }
 
   &-header {
     padding: 0 var(--wrapper-padding);
