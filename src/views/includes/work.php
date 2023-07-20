@@ -25,5 +25,4 @@
   <a class="home__work-button work__button scroll-button" href="#contact"><span
       class="home__work-button-text work__button-text scroll-button__text">Let's talk</span><span
       class="home__work-button-icon work__button-icon scroll-button__icon"><?= file_get_contents(asset_path('images/arrow-down.svg')) ?></span></a>
-  <?= partial('includes/work/popup') ?>
 </section>

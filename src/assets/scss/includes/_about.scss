@@ -19,11 +19,12 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+    object-position: top;
     z-index: 10;
     position: relative;
 
     &-container {
-      width: 30%;
+      width: 33%;
       height: 55vh;
       position: relative;
       transform: translateX(calc(-100% - 1rem));
@@ -44,7 +45,7 @@
     @include font-size(md);
     line-height: 1.5em;
     width: 50%;
-    padding: 0 var(--wrapper-padding);
+    padding: 0 calc(1.5*var(--wrapper-padding));
     flex: 1;
     transform: translateX(calc(100% + var(--wrapper-padding)));
     transition: transform 1s 1s;
@@ -57,5 +58,10 @@
   .visible {
     transform: translateX(0);
     transition: transform 500ms 500ms;
+  }
+
+  &__resume {
+    font-size: 1rem;
+    text-decoration: underline;
   }
 }

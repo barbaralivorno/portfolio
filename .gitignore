@@ -4,4 +4,5 @@
 .env.stg
 .env.dev
 docker-volumes/
+docker-volumes/**/*.ibd
 wordpress
