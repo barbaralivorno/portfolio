@@ -9,13 +9,17 @@ class About {
   setup() {
     this.image = document.querySelector(".about__img-container");
     this.text = document.querySelector(".about__text");
+
+    if (isElementVisible('#about')) {
+      this.handleOnScreenChange();
+    }
   }
 
   listen() {
     window.addEventListener('scroll', () => {
       if (isElementVisible('#about')) {
         this.handleOnScreenChange();
-      }
+      }      
     });
   }
 

@@ -3,17 +3,17 @@
   color: var(--blue);
   position: relative;
 
-  &__list {
+  &__accordion {
     max-height: 75vw;
     overflow-y: scroll;
     padding: 2rem var(--wrapper-padding);
 
     &-item {
-      @include font-size(lg);
+      $this: &;
       display: flex;
-      padding: 1.5rem 0;
+      flex-wrap: wrap;
+      padding: 1rem 0;
       border-bottom: 1px solid var(--blue);
-      gap: 2rem;
       transform: translateX(calc(-100% - 2*var(--wrapper-padding)));
 
       &.visible {
@@ -23,7 +23,53 @@
 
       &-icon {
         width: 2rem;
+        display: inline-block;
         box-sizing: content-box;
+        transition: all 500ms;
+      }
+
+      &-title {
+        @include font-size(lg);
+        width: 100%;
+        display: flex;
+        gap: 2rem;
+        padding: 0.5rem 0;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.8;
+        }
+
+        &.expanded {
+          #{$this}-icon {
+            transform: rotate(90deg);
+            transition: all 500ms;            
+          }
+        }
+      }
+
+      &-content {
+        display: flex;
+        flex-direction: column;
+        padding: 0 2rem;
+        height: 0;
+        overflow: hidden;
+        transition: all 500ms;
+
+        p {
+          margin-bottom: 1rem;
+        }
+      }
+
+      &-button {
+        margin-top: 1rem;
+        font-size: 1rem;
+        text-decoration: underline;
+        font-weight: bold;
+
+        &:hover {
+          opacity: 0.8;
+        }
       }
     }
   }
