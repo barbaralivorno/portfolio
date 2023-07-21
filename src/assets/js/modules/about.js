@@ -1,4 +1,4 @@
-import { isElementVisible } from '../helpers';
+import { isElementVisible, getDevice } from '../helpers';
 
 class About {
   constructor() {    
@@ -10,17 +10,23 @@ class About {
     this.image = document.querySelector(".about__img-container");
     this.text = document.querySelector(".about__text");
 
-    if (isElementVisible('#about')) {
-      this.handleOnScreenChange();
+    const device = getDevice();
+    if(device == 'laptop' || device == 'desktop') {
+      if (isElementVisible('#about')) {
+        this.handleOnScreenChange();
+      }
     }
   }
 
   listen() {
-    window.addEventListener('scroll', () => {
-      if (isElementVisible('#about')) {
-        this.handleOnScreenChange();
-      }      
-    });
+    const device = getDevice();
+    if(device == 'laptop' || device == 'desktop') {
+      window.addEventListener('scroll', () => {
+        if (isElementVisible('#about')) {
+          this.handleOnScreenChange();
+        }      
+      });
+    }
   }
 
   handleOnScreenChange() {

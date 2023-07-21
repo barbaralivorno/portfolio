@@ -19,3 +19,14 @@ export const isElementVisible = (elementSelector) => {
 
   return false;
 };
+
+
+export const getDevice = () => {
+  let device;
+  const width = window.innerWidth;
+  if (width > 1440) device = 'desktop';
+  else if (width > 1024) device = 'laptop';
+  else if (width > 767) device = 'tablet';
+  else device = 'phone';
+  return device;
+};

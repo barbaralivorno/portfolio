@@ -10,6 +10,7 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getDevice: () => (/* binding */ getDevice),
 /* harmony export */   isElementVisible: () => (/* binding */ isElementVisible)
 /* harmony export */ });
 var isElementVisible = function isElementVisible(elementSelector) {
@@ -24,6 +25,12 @@ var isElementVisible = function isElementVisible(elementSelector) {
     return true;
   }
   return false;
+};
+var getDevice = function getDevice() {
+  var device;
+  var width = window.innerWidth;
+  if (width > 1440) device = 'desktop';else if (width > 1024) device = 'laptop';else if (width > 767) device = 'tablet';else device = 'phone';
+  return device;
 };
 
 /***/ }),
@@ -57,19 +64,25 @@ var About = /*#__PURE__*/function () {
     value: function setup() {
       this.image = document.querySelector(".about__img-container");
       this.text = document.querySelector(".about__text");
-      if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.isElementVisible)('#about')) {
-        this.handleOnScreenChange();
+      var device = (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.getDevice)();
+      if (device == 'laptop' || device == 'desktop') {
+        if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.isElementVisible)('#about')) {
+          this.handleOnScreenChange();
+        }
       }
     }
   }, {
     key: "listen",
     value: function listen() {
       var _this = this;
-      window.addEventListener('scroll', function () {
-        if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.isElementVisible)('#about')) {
-          _this.handleOnScreenChange();
-        }
-      });
+      var device = (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.getDevice)();
+      if (device == 'laptop' || device == 'desktop') {
+        window.addEventListener('scroll', function () {
+          if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.isElementVisible)('#about')) {
+            _this.handleOnScreenChange();
+          }
+        });
+      }
     }
   }, {
     key: "handleOnScreenChange",

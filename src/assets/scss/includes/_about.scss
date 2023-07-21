@@ -41,6 +41,7 @@
       width: 33%;
       height: 55vh;
       position: relative;
+      z-index: 1;
 
       @include for-size(laptop-up) {
         transform: translateX(calc(-100% - 1rem));
