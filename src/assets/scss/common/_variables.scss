@@ -1,10 +1,16 @@
 :root {
-  // Colors
+  /* Colors */
   --blue: #0047BB;
   --white: #ffffff;
   --gray: #171717;
 
-  // Sizes
+  /* Sizes */
   --header-height: 4rem;
-  --wrapper-padding: 5rem
+  --wrapper-padding: 5rem;
+}
+
+@media (max-width: $phone-max-width) {
+  :root {
+    --wrapper-padding: 5vw;
+  }
 }

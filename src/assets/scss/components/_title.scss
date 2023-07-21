@@ -5,6 +5,10 @@
   padding: 6rem var(--wrapper-padding) 3rem;
   color: var(--blue);
 
+  @include for-size(tablet-down) {
+    padding: 5rem var(--wrapper-padding) 2rem;
+  }
+
   &--white {
     color: var(--white);
   }

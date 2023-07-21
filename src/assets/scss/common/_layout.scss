@@ -85,21 +85,29 @@ body {
       }
     }
 
-    &__social-networks-menu-item--linkedin {
-      width: 35px;
-      height: 35px;
-      background-image: url('assets/images/icon-linkedin.svg');
-      background-repeat: no-repeat;
-      background-size: contain;
-      margin-top: 1.5rem;
+    &__social-networks-menu {
+      display: flex;
+      margin-top: 2rem;
 
-      &:hover {
-        opacity: 0.8;
-        cursor: pointer;
-      }
-
-      a {
-        display: block;
+      &-item {
+        width: 35px;
+        height: 35px;
+        margin-right: 1rem;
+        color: var(--blue);
+  
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+  
+        &:hover {
+          opacity: 0.8;
+          cursor: pointer;
+        }
+  
+        a {
+          display: block;
+        }
       }
     }
   }

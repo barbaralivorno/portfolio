@@ -9,10 +9,7 @@
 ?>
 
 <section class="home__work work" id="work">
-  <h2 class="home__work-title work__title title">Some of my Work</h2>
-  <a class="home__work-button work__button scroll-button" href="#work"><span
-      class="home__work-button-text work__button-text scroll-button__text">Let's talk</span><span
-      class="home__work-button-icon work__button-icon scroll-button__icon"><?= file_get_contents(asset_path('images/arrow-down.svg')) ?></span></a>
+  <h2 class="home__work-title work__title title">My works</h2>
   <ul class="home__work-accordion work__accordion">
     <?php foreach ($works->posts as $item): ?>
     <li class="home__work-accordion-item work__accordion-item">

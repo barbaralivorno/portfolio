@@ -19,7 +19,8 @@ var isElementVisible = function isElementVisible(elementSelector) {
   }
   var rect = element.getBoundingClientRect();
   var windowHeight = window.innerHeight;
-  if (rect.top >= 0 && rect.top < windowHeight || rect.top <= 0 && rect.bottom >= windowHeight) {
+  var visibleThreshold = windowHeight * 0.25;
+  if (rect.top >= 0 && rect.top <= windowHeight - visibleThreshold || rect.bottom >= visibleThreshold && rect.bottom <= windowHeight || rect.top <= 0 && rect.bottom >= windowHeight) {
     return true;
   }
   return false;

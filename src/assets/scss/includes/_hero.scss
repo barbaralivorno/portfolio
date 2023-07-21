@@ -9,6 +9,10 @@
     @include secondary-font;
     @include font-size(ul);
     font-weight: bold;
+
+    @include for-size(phone-only) {
+      @include font-size(xl);
+    }
   }
 
   .cursor {

@@ -13,16 +13,29 @@
     gap: 17vw;
     border-top: 2px solid var(--white);
     margin: 0 auto;
+
+    @include for-size(tablet-down) {
+      flex-direction: column;
+      gap: 3rem;
+    }
   }
 
   &__data {
     display: flex;
     align-items: baseline;
+  
+    @include for-size(phone-only) {
+      flex-direction: column;
+    }
 
     &-title {
       @include font-size(lg);
       font-weight: bold;
       padding-right: 3rem;
+
+      @include for-size(phone-only) {
+        margin-bottom: 2rem;
+      }
     }
 
     &-link {
@@ -31,9 +44,22 @@
       display: flex;
       align-items: center;
 
+      @include for-size(phone-only) {
+        @include font-size(md);
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+
       &-icon {
         width: 1.8rem;
         margin-right: 1rem;
+
+        @include for-size(phone-only) {
+          width: 1.4rem;
+          margin-right: 0.5rem;
+        }
       }
     }
 

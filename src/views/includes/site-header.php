@@ -11,8 +11,11 @@
       'parent' => 'site-header',
     ]) ?>
     <ul class="site-header__social-networks-menu">
-      <li class="site-header__social-networks-menu-item--linkedin">
-        <a href="#"></a>
+      <li class="site-header__social-networks-menu-item">
+        <a href="#"><?= file_get_contents(asset_path('images/icon-linkedin.svg')) ?></a>
+      </li>
+      <li class="site-header__social-networks-menu-item">
+        <a href="#"><?= file_get_contents(asset_path('images/icon-github.svg')) ?></a>
       </li>
     </ul>
   </nav>

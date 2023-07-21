@@ -1,18 +1,32 @@
 .about {
-  height: 100vh;
   background-color: var(--blue);  
   color: var(--white);
   position: relative;
+
+  @include for-size(laptop-up) {
+    height: 100vh;
+  }
+
+  @include for-size(tablet-down) {
+    padding-bottom: 6rem;
+  }
 
   &__content {
     display: flex;
     align-items: center;
     padding-top: 1rem;
     margin: auto;
-    position: absolute;
-    top: calc(50% + var(--header-height)/2);
-    transform: translateY(-50%);
-    left: 0;
+
+    @include for-size(laptop-up) {
+      position: absolute;
+      top: calc(50% + var(--header-height)/2);
+      transform: translateY(-50%);
+      left: 0;
+    }
+
+    @include for-size(tablet-down) {
+      flex-direction: column;
+    }
   }
 
   &__img {
@@ -27,8 +41,20 @@
       width: 33%;
       height: 55vh;
       position: relative;
-      transform: translateX(calc(-100% - 1rem));
-      transition: transform 250ms;
+
+      @include for-size(laptop-up) {
+        transform: translateX(calc(-100% - 1rem));
+        transition: transform 250ms;
+      }
+
+      @include for-size(tablet-down) {
+        width: 50%;
+        height: auto;
+      }
+
+      @include for-size(phone-only) {
+        width: calc(90vw - 2rem);
+      }
   
       &::before {
         content: '';
@@ -37,6 +63,11 @@
         height: calc(100% + 2rem);
         position: absolute;
         top: -1rem;
+
+        @include for-size(tablet-down) {
+          width: calc(100% + 2rem);
+          left: -1rem;
+        }
       }
     }
   }
@@ -47,8 +78,17 @@
     width: 50%;
     padding: 0 calc(1.5*var(--wrapper-padding));
     flex: 1;
-    transform: translateX(calc(100% + var(--wrapper-padding)));
-    transition: transform 1s 1s;
+
+    @include for-size(laptop-up) {
+      transform: translateX(calc(100% + var(--wrapper-padding)));
+      transition: transform 1s 1s;
+    }
+
+    @include for-size(tablet-down) {
+      width: 100%;
+      padding: 0 var(--wrapper-padding);
+      margin-top: 3rem;
+    }
 
     p {
       margin-bottom: 1rem;
@@ -63,5 +103,9 @@
   &__resume {
     font-size: 1rem;
     text-decoration: underline;
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 }

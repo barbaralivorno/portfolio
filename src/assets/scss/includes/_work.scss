@@ -1,12 +1,23 @@
 .work {
-  height: 100vh;
+  min-height: 100vh;
   color: var(--blue);
   position: relative;
 
+  @include for-size(laptop-up) {
+    height: 100vh;
+  }
+
+  @include for-size(tablet-down) {
+    padding-bottom: 6rem;
+  }
+
   &__accordion {
-    max-height: 75vw;
     overflow-y: scroll;
-    padding: 2rem var(--wrapper-padding);
+    padding: 0 var(--wrapper-padding) 2rem;
+
+    @include for-size(laptop-up) {
+      max-height: 75vw;
+    }
 
     &-item {
       $this: &;
@@ -26,6 +37,10 @@
         display: inline-block;
         box-sizing: content-box;
         transition: all 500ms;
+
+        @include for-size(phone-only) {
+          width: 1.5rem;
+        }
       }
 
       &-title {
@@ -35,6 +50,10 @@
         gap: 2rem;
         padding: 0.5rem 0;
         cursor: pointer;
+
+        @include for-size(phone-only) {
+          gap: 1rem;
+        }
 
         &:hover {
           opacity: 0.8;
