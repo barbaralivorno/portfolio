@@ -78,13 +78,36 @@
         p {
           margin-bottom: 1rem;
         }
+
+        ul {
+          display: flex;
+          gap: 0.5rem;
+          margin-bottom: 1rem;
+
+          li {
+            background-color: var(--blue);
+            color: var(--white);
+            padding: 0.5rem;
+          }
+        }
+      }
+
+      &-group {
+        display: flex;
+        margin-top: 0.5rem;
       }
 
       &-button {
-        margin-top: 1rem;
         font-size: 1rem;
         text-decoration: underline;
         font-weight: bold;
+
+        &:first-of-type {
+          &:after {
+            content: '|';
+            padding: 0.5rem;
+          }
+        }
 
         &:hover {
           opacity: 0.8;
