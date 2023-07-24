@@ -3,6 +3,7 @@
 .env.prd
 .env.stg
 .env.dev
+node_modules/
 docker-volumes/
 docker-volumes/**/*.ibd
 wordpress
