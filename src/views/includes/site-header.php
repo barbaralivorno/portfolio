@@ -12,10 +12,12 @@
     ]) ?>
     <ul class="site-header__social-networks-menu">
       <li class="site-header__social-networks-menu-item">
-        <a href="#"><?= file_get_contents(asset_path('images/icon-linkedin.svg')) ?></a>
+        <a target="_blank"
+          href="https://www.linkedin.com/in/barbaralivorno/"><?= file_get_contents(asset_path('images/icon-linkedin.svg')) ?></a>
       </li>
       <li class="site-header__social-networks-menu-item">
-        <a href="#"><?= file_get_contents(asset_path('images/icon-github.svg')) ?></a>
+        <a target="_blank"
+          href="https://github.com/barbaralivorno"><?= file_get_contents(asset_path('images/icon-github.svg')) ?></a>
       </li>
     </ul>
   </nav>

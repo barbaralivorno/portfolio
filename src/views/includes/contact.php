@@ -9,9 +9,9 @@
     <div class="contact__data">
       <h3 class="contact__data-title">Social Netoworks</h3>
       <div class="contact__data-group">
-        <a class="contact__data-link" href="https://www.linkedin.com/in/barbaralivorno/"><span
+        <a class="contact__data-link" target="_blank" href="https://www.linkedin.com/in/barbaralivorno/"><span
             class="contact__data-link-icon"><?= file_get_contents(asset_path('images/arrow-down.svg')) ?></span>linkedin</a>
-        <a class="contact__data-link" href="https://github.com/barbaralivorno"><span
+        <a class="contact__data-link" target="_blank" href="https://github.com/barbaralivorno"><span
             class="contact__data-link-icon"><?= file_get_contents(asset_path('images/arrow-down.svg')) ?></span>github</a>
       </div>
     </div>
