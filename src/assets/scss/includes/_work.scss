@@ -16,7 +16,8 @@
     padding: 0 var(--wrapper-padding) 2rem;
 
     @include for-size(laptop-up) {
-      max-height: 75vw;
+      max-height: 60vh;
+      box-sizing: content-box;
     }
 
     &-item {
