@@ -19,16 +19,19 @@
       <div class="work__accordion-item-content">
         <?= $item->post_content ?>
         <div class="work__accordion-item-group">
-          <a class="work__accordion-item-button" href="<?= get_field('site_link', $item->ID) ?>" target="_blank">Go to
+          <a class="work__accordion-item-button" aria-label="Go to site" href="<?= get_field('site_link', $item->ID) ?>"
+            target="_blank">Go to
             site</a>
-          <a class="work__accordion-item-button" href="<?= get_field('github_link', $item->ID) ?>" target="_blank">Take
+          <a class="work__accordion-item-button" aria-label="Take a look at the code"
+            href="<?= get_field('github_link', $item->ID) ?>" target="_blank">Take
             a look at the code</a>
         </div>
       </div>
     </li>
     <?php endforeach; ?>
   </ul>
-  <a class="work__button scroll-button" href="#contact"><span class="work__button-text scroll-button__text">Let's
+  <a class="work__button scroll-button" aria-label="Let's talk" href="#contact"><span
+      class="work__button-text scroll-button__text">Let's
       talk</span><span
       class="work__button-icon scroll-button__icon"><?= file_get_contents(asset_path('images/arrow-down.svg')) ?></span></a>
 </section>

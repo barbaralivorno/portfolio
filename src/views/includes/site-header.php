@@ -1,5 +1,5 @@
 <header class="site-header">
-  <a href="/" class="site-header__logo">
+  <a href="/" aria-label="Logo" class="site-header__logo">
     <?= file_get_contents(asset_path('images/logo.svg')) ?>
   </a>
   <button class="site-header__nav-icon nav-icon lines-button" type="button" role="button"
@@ -12,11 +12,11 @@
     ]) ?>
     <ul class="site-header__social-networks-menu">
       <li class="site-header__social-networks-menu-item">
-        <a target="_blank"
+        <a target="_blank" aria-label="Linkedin"
           href="https://www.linkedin.com/in/barbaralivorno/"><?= file_get_contents(asset_path('images/icon-linkedin.svg')) ?></a>
       </li>
       <li class="site-header__social-networks-menu-item">
-        <a target="_blank"
+        <a target="_blank" aria-label="Github"
           href="https://github.com/barbaralivorno"><?= file_get_contents(asset_path('images/icon-github.svg')) ?></a>
       </li>
     </ul>
