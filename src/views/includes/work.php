@@ -9,7 +9,7 @@
 ?>
 
 <section class="work" id="work">
-  <h2 class="work__title title">My works</h2>
+  <h2 class="work__title title">My work</h2>
   <ul class="work__accordion">
     <?php foreach ($works->posts as $item): ?>
     <li class="work__accordion-item">
